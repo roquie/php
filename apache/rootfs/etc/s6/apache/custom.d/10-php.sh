@@ -2,7 +2,7 @@
 
 echo "> writing php config"
 /usr/bin/templater -d -p php \
-  -o /etc/php7/php.ini \
+  -o /etc/php5/php.ini \
   /etc/templates/php.ini.tmpl
 
 if [[ $? -ne 0 ]]
@@ -11,23 +11,23 @@ then
   exit 1
 fi
 
-find /etc/php7/custom.d -mindepth 1 -type d -print0 | while read -d $'\0' TEMPLATE
+find /etc/php5/custom.d -mindepth 1 -type d -print0 | while read -d $'\0' TEMPLATE
 do
-  RELATIVENAME=${TEMPLATE//\/etc\/php7\/custom.d\//}
+  RELATIVENAME=${TEMPLATE//\/etc\/php5\/custom.d\//}
 
-  if [ ! -d "/etc/php7/conf.d/${RELATIVENAME}" ]
+  if [ ! -d "/etc/php5/conf.d/${RELATIVENAME}" ]
   then
-    mkdir "/etc/php7/conf.d/${RELATIVENAME}"
+    mkdir "/etc/php5/conf.d/${RELATIVENAME}"
   fi
 done
 
-find /etc/php7/custom.d -mindepth 1 -type f -print0 | while read -d $'\0' TEMPLATE
+find /etc/php5/custom.d -mindepth 1 -type f -print0 | while read -d $'\0' TEMPLATE
 do
-  RELATIVENAME=${TEMPLATE//\/etc\/php7\/custom.d\//}
+  RELATIVENAME=${TEMPLATE//\/etc\/php5\/custom.d\//}
 
   ln -sf \
-    "/etc/php7/conf.d/${RELATIVENAME}" \
-    "/etc/php7/custom.d/${RELATIVENAME}"
+    "/etc/php5/conf.d/${RELATIVENAME}" \
+    "/etc/php5/custom.d/${RELATIVENAME}"
 done
 
 pushd /srv/www > /dev/null

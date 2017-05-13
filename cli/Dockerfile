@@ -8,42 +8,36 @@ CMD ["bash"]
 RUN apk update && \
   apk upgrade && \
   apk add \
-    php7 \
-    php7-ctype \
-    php7-curl \
-    php7-dom \
-    php7-gd \
-    php7-iconv \
-    php7-intl \
-    php7-json \
-    php7-mcrypt \
-    php7-memcached \
-    php7-mysqli \
-    php7-mysqlnd \
-    php7-openssl \
-    php7-pdo \
-    php7-pdo_mysql \
-    php7-pdo_pgsql \
-    php7-pdo_sqlite \
-    php7-pear \
-    php7-pgsql \
-    php7-phar \
-    php7-sqlite3 \
-    php7-xml \
-    php7-zip \
-    php7-zlib \
-    php7-mbstring \
-    php7-simplexml \
-    php7-tokenizer \
-    php7-xmlwriter \
-    php7-fileinfo \
+    php5 \
+    php5-cli \
+    php5-ctype \
+    php5-curl \
+    php5-dom \
+    php5-gd \
+    php5-iconv \
+    php5-intl \
+    php5-json \
+    php5-mcrypt \
+    php5-mysqli \
+    php5-mysql \
+    php5-openssl \
+    php5-pdo \
+    php5-pdo_mysql \
+    php5-pdo_pgsql \
+    php5-pdo_sqlite \
+    php5-pear \
+    php5-pgsql \
+    php5-phar \
+    php5-sqlite3 \
+    php5-xml \
+    php5-zip \
+    php5-zlib \
     git && \
   ln -sf \
-    /usr/bin/php7 \
+    /usr/bin/php5 \
     /usr/bin/php && \
   rm -rf \
-    /var/cache/apk/* \
-    /etc/php7/*
+    /var/cache/apk/*
 
 ADD rootfs /
 

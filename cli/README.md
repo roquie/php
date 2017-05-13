@@ -15,7 +15,7 @@ These are docker images for [PHP](https://secure.php.net) running on a [Alpine c
 ## Volumes
 
 * /srv/www
-* /etc/php7/custom.d
+* /etc/php5/custom.d
 
 
 ## Ports
